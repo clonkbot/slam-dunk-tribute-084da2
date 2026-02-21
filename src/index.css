@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-shohoku-red: #C41E3A;
+  --color-orange-accent: #FF6B35;
+  --color-dark: #1A1A1A;
+  --color-cream: #FFF8E7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Archivo', sans-serif;
+  background-color: var(--color-dark);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Font classes */
+.font-display {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+}
+
+.font-body {
+  font-family: 'Archivo', sans-serif;
+}
+
+.font-japanese {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--color-shohoku-red);
+  color: white;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-shohoku-red);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-orange-accent);
+}
+
+/* Manga-style text shadow utility */
+.text-manga-shadow {
+  text-shadow:
+    2px 2px 0 var(--color-shohoku-red),
+    4px 4px 0 rgba(196, 30, 58, 0.3);
+}
+
+/* Speed line animation */
+@keyframes speed-lines {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-speed-lines {
+  animation: speed-lines 0.5s linear infinite;
+}
+
+/* Diagonal stripe pattern */
+.diagonal-stripes {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(196, 30, 58, 0.1) 10px,
+    rgba(196, 30, 58, 0.1) 20px
+  );
+}
+
+/* Halftone pattern */
+.halftone {
+  background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+/* Prevent FOUC */
+html:not(.loaded) body {
+  visibility: hidden;
+}
